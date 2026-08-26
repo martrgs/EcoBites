@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#FFFDF6" android:fillViewport="true">
+    <LinearLayout android:id="@+id/ll_contenido_bienvenida" android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center_horizontal" android:orientation="vertical" android:padding="24dp">
+        <ImageView android:id="@+id/img_logo_bienvenida" android:layout_width="220dp" android:layout_height="90dp" android:layout_marginTop="34dp" android:adjustViewBounds="true" android:contentDescription="ecoBites" android:src="@drawable/nombre" />
+        <TextView android:id="@+id/tv_eslogan_bienvenida" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cuida tus alimentos, cuida el planeta" android:textColor="#315D2B" android:textSize="16sp" />
+        <ImageView android:id="@+id/img_mascota_bienvenida" android:layout_width="250dp" android:layout_height="285dp" android:layout_marginTop="16dp" android:adjustViewBounds="true" android:contentDescription="Mascota ecoBites" android:src="@drawable/mascota" />
+        <TextView android:id="@+id/tv_titulo_bienvenida" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="¡Bienvenido a ecoBites!" android:textColor="#285A24" android:textSize="25sp" android:textStyle="bold" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:gravity="center" android:text="Tu app para registrar vencimientos\ny evitar el desperdicio de alimentos." android:textColor="#4C5D49" android:textSize="15sp" />
+        <Button android:id="@+id/btn_ir_inicio_sesion" android:layout_width="match_parent" android:layout_height="52dp" android:layout_marginTop="28dp" android:backgroundTint="#5A9E36" android:text="Iniciar sesión" android:textAllCaps="false" android:textColor="#FFFFFF" android:textSize="16sp" />
+        <Button android:id="@+id/btn_ir_registro" android:layout_width="match_parent" android:layout_height="52dp" android:layout_marginTop="10dp" android:background="@drawable/fondo_boton_borde" android:text="Crear cuenta" android:textAllCaps="false" android:textColor="#315D2B" android:textSize="16sp" />
+    </LinearLayout>
+</ScrollView>
