@@ -10,6 +10,11 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import com.example.ecobites.api.GoogleAuthManager
+import com.example.ecobites.model.SessionStore
+import com.example.ecobites.model.UserSession
+import com.example.ecobites.model.LocalAccountStore
 
 class RegisterActivity : AppCompatActivity() {
     companion object {
@@ -20,12 +25,21 @@ class RegisterActivity : AppCompatActivity() {
 
     private lateinit var pantallaInicio: LinearLayout
     private lateinit var pantallaRegistro: LinearLayout
+    private lateinit var googleAuth: GoogleAuthManager
+    private lateinit var accountStore: LocalAccountStore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         pantallaInicio = findViewById(R.id.ll_inicio_sesion)
         pantallaRegistro = findViewById(R.id.ll_registro)
+        accountStore = LocalAccountStore(this)
+        googleAuth = GoogleAuthManager(
+            context = this,
+            executor = ContextCompat.getMainExecutor(this),
+            onSuccess = ::abrirMain,
+            onFailureMessage = { Toast.makeText(this, it, Toast.LENGTH_LONG).show() }
+        )
 
         if (intent.getStringExtra(EXTRA_MODO) == MODO_REGISTRO) mostrarRegistro() else mostrarInicio()
 
@@ -34,13 +48,21 @@ class RegisterActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tv_ir_inicio).setOnClickListener { mostrarInicio() }
 
         findViewById<Button>(R.id.btn_iniciar).setOnClickListener {
-            val nombre = findViewById<EditText>(R.id.et_nombre_inicio)
             val correo = findViewById<EditText>(R.id.et_correo_inicio)
             val contrasena = findViewById<EditText>(R.id.et_contrasena_inicio)
-            if (validarNombre(nombre) && validarCorreo(correo) && validarContrasena(contrasena)) {
-                abrirMain(nombre.text.toString().trim())
+            if (validarCorreo(correo) && validarContrasena(contrasena)) {
+                val email = correo.text.toString().trim()
+                val account = accountStore.authenticate(email, contrasena.text.toString())
+                if (account == null) {
+                    mostrarError(contrasena, "Correo o contraseña incorrectos")
+                } else {
+                    abrirMain(UserSession(account.name, account.email, "email"))
+                }
             }
         }
+
+        findViewById<Button>(R.id.btn_google_login).setOnClickListener { googleAuth.signIn() }
+        findViewById<Button>(R.id.btn_google_register).setOnClickListener { googleAuth.signIn() }
 
         findViewById<Button>(R.id.btn_crear_cuenta).setOnClickListener {
             val nombre = findViewById<EditText>(R.id.et_nombre_registro)
@@ -53,7 +75,12 @@ class RegisterActivity : AppCompatActivity() {
             if (!aceptaTerminos.isChecked) {
                 Toast.makeText(this, "Debes aceptar los términos y condiciones", Toast.LENGTH_SHORT).show()
             } else if (datosValidos) {
-                abrirMain(nombre.text.toString().trim())
+                val email = correo.text.toString().trim()
+                if (!accountStore.register(nombre.text.toString(), email, contrasena.text.toString())) {
+                    mostrarError(correo, "Ya existe una cuenta con este correo")
+                } else {
+                    abrirMain(UserSession(nombre.text.toString().trim(), email, "email"))
+                }
             }
         }
     }
@@ -87,20 +114,28 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun cuando(vacio: Boolean, invalido: Boolean, campo: EditText, errorVacio: String, errorInvalido: String): Boolean {
-        if (vacio) { campo.error = errorVacio; return false }
-        if (invalido) { campo.error = errorInvalido; return false }
+        if (vacio) { mostrarError(campo, errorVacio); return false }
+        if (invalido) { mostrarError(campo, errorInvalido); return false }
         return true
     }
 
     private fun validarConfirmacion(contrasena: EditText, confirmar: EditText): Boolean {
-        if (confirmar.text.toString().isEmpty()) { confirmar.error = "Confirma tu contraseña"; return false }
-        if (contrasena.text.toString() != confirmar.text.toString()) { confirmar.error = "Las contraseñas no coinciden"; return false }
+        if (confirmar.text.toString().isEmpty()) { mostrarError(confirmar, "Confirma tu contraseña"); return false }
+        if (contrasena.text.toString() != confirmar.text.toString()) { mostrarError(confirmar, "Las contraseñas no coinciden"); return false }
         return true
     }
 
-    private fun abrirMain(nombre: String) {
+    private fun mostrarError(campo: EditText, mensaje: String) {
+        campo.error = mensaje
+        campo.requestFocus()
+        Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun abrirMain(session: UserSession) {
+        SessionStore(this).save(session)
         val intent = Intent(this, MainActivity::class.java).apply {
-            putExtra(MainActivity.EXTRA_NOMBRE_USUARIO, nombre)
+            putExtra(MainActivity.EXTRA_NOMBRE_USUARIO, session.name)
+            putExtra(MainActivity.EXTRA_CORREO_USUARIO, session.email)
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
         startActivity(intent)

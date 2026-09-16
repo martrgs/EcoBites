@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2E3A36"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="42dp"
+            android:layout_height="48dp"
+            android:backgroundTint="#00FFFFFF"
+            android:drawableTop="@drawable/ic_arrow_back_white"
+            android:text="" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Escanear producto"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="42dp"
+            android:layout_height="1dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="230dp"
+            android:layout_height="230dp"
+            android:background="@drawable/bg_scanner_frame">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="▥&#10;&#10;Código de barras"
+                android:textAlignment="center"
+                android:textColor="@color/eco_green_scanner_text"
+                android:textSize="18sp" />
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="220dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="-116dp"
+            android:background="@color/eco_green_scanner_line" />
+
+        <Space
+            android:layout_width="1dp"
+            android:layout_height="116dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_scan_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_marginBottom="18dp"
+        android:background="@drawable/bg_card"
+        android:text="▣    Escanea el código&#10;       del producto"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF" />
+</LinearLayout>

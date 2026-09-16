@@ -1,7 +1,14 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.EcoBites" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/eco_green_bright</item>
+        <item name="colorOnPrimary">@color/eco_green_deep</item>
+        <item name="colorPrimaryContainer">@color/eco_green_dark</item>
+        <item name="colorOnPrimaryContainer">@color/eco_green_soft</item>
+        <item name="colorSecondary">@color/eco_green_lime</item>
+        <item name="colorOnSecondary">@color/eco_green_deep</item>
+        <item name="colorSurface">@color/eco_green_scanner</item>
+        <item name="colorOnSurface">@color/eco_green_soft</item>
+        <item name="colorOutline">@color/eco_green_bright</item>
     </style>
 </resources>

@@ -1,8 +1,21 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.EcoBites" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="colorPrimary">@color/eco_green_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/eco_green_soft</item>
+        <item name="colorOnPrimaryContainer">@color/eco_green_deep</item>
+        <item name="colorSecondary">@color/eco_green_bright</item>
+        <item name="colorOnSecondary">@color/eco_green_deep</item>
+        <item name="colorTertiary">@color/eco_green_lime</item>
+        <item name="colorSurface">@color/eco_green_surface</item>
+        <item name="colorOnSurface">@color/eco_green_text</item>
+        <item name="colorOutline">@color/eco_green_border</item>
+        <item name="android:colorAccent">@color/eco_green_primary</item>
+        <item name="android:navigationBarColor">@color/eco_green_card</item>
+        <item name="android:statusBarColor">@color/eco_green_surface</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="Theme.EcoBites" parent="Base.Theme.EcoBites" />

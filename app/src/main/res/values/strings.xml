@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ecoBites</string>
+    <string-array name="categories"><item>Lácteos</item><item>Frutas y verduras</item><item>Carnes</item><item>Bebidas</item><item>Otros</item></string-array>
+    <string-array name="languages"><item>Español</item><item>English</item></string-array>
 </resources>

@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
+    <color name="eco_green_deep">#073B22</color>
+    <color name="eco_green_dark">#0B5D32</color>
+    <color name="eco_green_primary">#12A84B</color>
+    <color name="eco_green_bright">#38C85A</color>
+    <color name="eco_green_lime">#9BE34C</color>
+    <color name="eco_green_surface">#F4FFF6</color>
+    <color name="eco_green_card">#FAFFFB</color>
+    <color name="eco_green_soft">#DDF8E5</color>
+    <color name="eco_green_border">#B9E8C7</color>
+    <color name="eco_green_text">#0E4C2A</color>
+    <color name="eco_green_text_secondary">#3E7B52</color>
+    <color name="eco_green_muted">#6E9C7C</color>
+    <color name="eco_green_scanner">#082E1D</color>
+    <color name="eco_green_scanner_line">#62EA83</color>
+    <color name="eco_green_scanner_text">#D7F8DF</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
 </resources>

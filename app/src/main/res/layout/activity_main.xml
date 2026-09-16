@@ -1,72 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/ll_principal"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#FFFDF6">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/eco_green_surface" android:orientation="vertical">
+ <LinearLayout android:layout_width="match_parent" android:layout_height="112dp" android:background="@drawable/bg_header" android:gravity="bottom|center_vertical" android:orientation="horizontal" android:padding="16dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:gravity="center_vertical"
-        android:paddingHorizontal="20dp">
-        <Button android:id="@+id/btn_volver_main" android:layout_width="48dp" android:layout_height="48dp" android:backgroundTint="#00FFFFFF" android:text="←" android:textAllCaps="false" android:textColor="#315D2B" android:textSize="27sp" />
-        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center"
-            android:text="ecoBites" android:textColor="#285A24" android:textSize="27sp" android:textStyle="bold" />
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="♧" android:textColor="#315D2B" android:textSize="28sp" />
-    </LinearLayout>
+  <TextView
+      android:layout_width="53dp"
+      android:layout_height="47dp"
+      android:background="@drawable/bg_card"
+      android:gravity="center"
+      android:text="👩🏻"
+      android:textSize="24sp" />
+  <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:layout_weight="1" android:orientation="vertical">
 
-    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
-        android:clipToPadding="false" android:paddingHorizontal="18dp" android:paddingBottom="92dp">
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
-            <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="142dp"
-                android:layout_marginTop="4dp" app:cardCornerRadius="20dp" app:cardElevation="2dp" app:cardBackgroundColor="#DCEEC9">
-                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center_vertical" android:padding="18dp">
-                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
-                        <TextView android:id="@+id/tv_saludo_usuario" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="¡Bienvenido a ecoBites!" android:textColor="#285A24" android:textSize="19sp" android:textStyle="bold" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp"
-                            android:text="Lleva el control de tus alimentos\ny evita desperdicios." android:textColor="#315D2B" android:textSize="13sp" />
-                    </LinearLayout>
-                    <ImageView android:layout_width="110dp" android:layout_height="115dp" android:adjustViewBounds="true" android:contentDescription="Mascota" android:src="@drawable/mascota" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+   <TextView
+       android:id="@+id/tv_saludo_usuario"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Hola, Mariana"
+       android:textColor="#FFFFFF"
+       android:textSize="30sp"
+       android:textStyle="bold" />
 
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="22dp"
-                android:text="Resumen" android:textColor="#285A24" android:textSize="18sp" android:textStyle="bold" />
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:orientation="horizontal">
-                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="104dp" android:layout_weight="1" android:layout_marginEnd="7dp" app:cardCornerRadius="15dp" app:cardElevation="2dp">
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="▣" android:textColor="#5A9E36" android:textSize="20sp"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1" android:textColor="#285A24" android:textSize="21sp" android:textStyle="bold"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Productos" android:textColor="#4C5D49" android:textSize="11sp"/></LinearLayout>
-                </androidx.cardview.widget.CardView>
-                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="104dp" android:layout_weight="1" android:layout_marginHorizontal="4dp" app:cardCornerRadius="15dp" app:cardElevation="2dp">
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="◷" android:textColor="#5A9E36" android:textSize="20sp"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1" android:textColor="#285A24" android:textSize="21sp" android:textStyle="bold"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Por vencer" android:textColor="#4C5D49" android:textSize="11sp"/></LinearLayout>
-                </androidx.cardview.widget.CardView>
-                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="104dp" android:layout_weight="1" android:layout_marginStart="7dp" app:cardCornerRadius="15dp" app:cardElevation="2dp">
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="♡" android:textColor="#5A9E36" android:textSize="20sp"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$0" android:textColor="#285A24" android:textSize="21sp" android:textStyle="bold"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ahorrado" android:textColor="#4C5D49" android:textSize="11sp"/></LinearLayout>
-                </androidx.cardview.widget.CardView>
-            </LinearLayout>
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="¡Qué bueno verte!"
+       android:textColor="#E9F6DE"
+       android:textSize="14sp" /></LinearLayout>
+  <TextView android:layout_width="36dp" android:layout_height="42dp" android:gravity="center" android:text="♧" android:textColor="#FFFFFF" android:textSize="25sp"/>
+ </LinearLayout>
+ <LinearLayout android:layout_width="match_parent" android:layout_height="54dp" android:gravity="center_vertical" android:orientation="horizontal" android:paddingHorizontal="16dp">
+  <EditText android:id="@+id/et_buscar_producto" android:layout_width="0dp" android:layout_height="36dp" android:layout_weight="1" android:background="@drawable/fondo_campo" android:hint="⌕  Buscar producto..." android:paddingHorizontal="12dp" android:textSize="11sp"/>
+  <TextView android:layout_width="34dp" android:layout_height="36dp" android:layout_marginStart="8dp" android:background="@drawable/bg_card" android:gravity="center" android:text="▦" android:textColor="#176135"/>
+ </LinearLayout>
+ <LinearLayout android:layout_width="match_parent" android:layout_height="76dp" android:layout_marginHorizontal="16dp" android:background="@drawable/bg_soft_green" android:gravity="center_vertical" android:orientation="horizontal" android:padding="10dp">
+  <TextView android:layout_width="66dp" android:layout_height="56dp" android:gravity="center" android:text="🥑" android:textSize="42sp"/>
+  <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tu comida también importa" android:textColor="#174A29" android:textSize="12sp" android:textStyle="bold"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Revisa la fecha de vencimiento&#10;y evita el desperdicio." android:textColor="#387044" android:textSize="9sp"/></LinearLayout>
+ </LinearLayout>
+ <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="18dp" android:layout_marginTop="14dp" android:text="Mis productos" android:textColor="#163C23" android:textSize="15sp" android:textStyle="bold"/>
+ <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_lista_productos" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:clipToPadding="false" android:paddingHorizontal="16dp" android:paddingTop="8dp"/>
+ <LinearLayout android:layout_width="match_parent" android:layout_height="52dp" android:gravity="center_vertical" android:orientation="horizontal" android:paddingHorizontal="16dp"><Button android:id="@+id/btn_agregar_producto" android:layout_width="0dp" android:layout_height="38dp" android:layout_weight="1" android:background="@drawable/bg_primary_button" android:text="+  Agregar producto" android:textAllCaps="false" android:textColor="#FFFFFF" android:textSize="11sp"/><Button android:id="@+id/btn_ir_escaner" android:layout_width="105dp" android:layout_height="38dp" android:layout_marginStart="10dp" android:background="@drawable/fondo_boton_borde" android:text="▣  Escanear" android:textAllCaps="false" android:textColor="#175A2B" android:textSize="11sp"/></LinearLayout>
+ <LinearLayout android:layout_width="match_parent" android:layout_height="58dp" android:background="#FFFFFF" android:gravity="center" android:orientation="horizontal">
 
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:text="Próximos a vencer" android:textColor="#285A24" android:textSize="18sp" android:textStyle="bold" />
-            <EditText android:id="@+id/et_buscar_producto" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginTop="10dp" android:background="@drawable/fondo_campo" android:hint="Buscar producto..." android:inputType="text" android:paddingHorizontal="14dp" />
+  <TextView
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:gravity="center"
+      android:text="⌂&#10;Inicio"
+      android:textAlignment="center"
+      android:textColor="#176F36"
+      android:textSize="10sp" />
 
-            <androidx.cardview.widget.CardView android:id="@+id/cv_formulario_agregar" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:visibility="gone" app:cardCornerRadius="18dp" app:cardElevation="4dp">
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="18dp">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Registrar alimento" android:textColor="#285A24" android:textSize="18sp" android:textStyle="bold" />
-                    <EditText android:id="@+id/et_nombre_producto" android:layout_width="match_parent" android:layout_height="50dp" android:layout_marginTop="12dp" android:background="@drawable/fondo_campo" android:hint="Nombre del alimento" android:paddingHorizontal="12dp" />
-                    <EditText android:id="@+id/et_dias_vencimiento" android:layout_width="match_parent" android:layout_height="50dp" android:layout_marginTop="10dp" android:background="@drawable/fondo_campo" android:hint="Días para vencer" android:inputType="number" android:paddingHorizontal="12dp" />
-                    <Button android:id="@+id/btn_guardar_producto" android:layout_width="match_parent" android:layout_height="50dp" android:layout_marginTop="14dp" android:backgroundTint="#5A9E36" android:text="Guardar alimento" android:textAllCaps="false" android:textColor="#FFFFFF" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+  <Button
+      android:id="@+id/btn_ir_productos"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:backgroundTint="#00FFFFFF"
+      android:text="▣&#10;Productos"
+      android:textAllCaps="false"
+      android:textColor="#385543"
+      android:textSize="10sp" />
 
-            <LinearLayout android:id="@+id/ll_lista_productos" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:orientation="vertical">
-                <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" app:cardCornerRadius="15dp" app:cardElevation="2dp" app:cardBackgroundColor="#FFF7E8">
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal" android:padding="14dp"><TextView android:layout_width="42dp" android:layout_height="42dp" android:gravity="center" android:text="🥑" android:textSize="25sp"/><LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:layout_weight="1" android:orientation="vertical"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Aguacate Hass" android:textColor="#285A24" android:textStyle="bold"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:text="Vence en 2 días" android:textColor="#826C35" android:textSize="12sp"/></LinearLayout><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="#F6A324" android:paddingHorizontal="8dp" android:paddingVertical="5dp" android:text="2 días" android:textColor="#FFFFFF" android:textSize="11sp"/></LinearLayout>
-                </androidx.cardview.widget.CardView>
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+  <TextView
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:gravity="center"
+      android:text="⌕&#10;Buscar"
+      android:textAlignment="center"
+      android:textColor="#385543"
+      android:textSize="10sp" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton android:id="@+id/btn_agregar_producto" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="end" android:layout_margin="20dp" android:contentDescription="Agregar producto" android:src="@android:drawable/ic_input_add" app:backgroundTint="#477B35" app:tint="#FFFFFF" />
+  <Button
+      android:id="@+id/btn_ir_configuracion"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:backgroundTint="#00FFFFFF"
+      android:text="☰&#10;Menú"
+      android:textAllCaps="false"
+      android:textColor="#385543"
+      android:textSize="10sp" /></LinearLayout>
 </LinearLayout>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +16,12 @@
             android:name=".MainActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".AddProductActivity" android:exported="false" />
+        <activity android:name=".ProductsActivity" android:exported="false" />
+        <activity android:name=".SettingsActivity" android:exported="false" />
+        <activity android:name=".ScannerActivity" android:exported="false" />
+        <activity android:name=".MenuActivity" android:exported="false" />
+        <receiver android:name=".ExpiryNotificationReceiver" android:exported="false" />
         <activity
             android:name=".welcomeActivity"
             android:exported="true"
