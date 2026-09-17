@@ -5,7 +5,7 @@ import androidx.credentials.CredentialManager
 import androidx.credentials.GetCredentialRequest
 import androidx.credentials.GetCredentialResponse
 import androidx.credentials.exceptions.GetCredentialException
-import com.google.android.libraries.identity.googleid.GetSignInWithGoogleOption
+import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.example.ecobites.R
 import com.example.ecobites.model.UserSession
@@ -21,10 +21,19 @@ class GoogleAuthManager(
     private val credentialManager = CredentialManager.create(context)
 
     fun signIn() {
-
         val clientId = context.getString(R.string.google_server_client_id).trim()
+        if (clientId.isBlank() || clientId.startsWith("REEMPLAZA")) {
+            onFailureMessage("Falta configurar el Client ID web de Google.")
+            return
+        }
 
-        val googleOption = GetSignInWithGoogleOption.Builder(clientId).build()
+        // Muestra todas las cuentas del dispositivo, incluidas las no usadas antes,
+        // y evita el inicio automático para que el usuario pueda elegir o agregar una.
+        val googleOption = GetGoogleIdOption.Builder()
+            .setFilterByAuthorizedAccounts(false)
+            .setAutoSelectEnabled(false)
+            .setServerClientId(clientId)
+            .build()
         val request = GetCredentialRequest.Builder().addCredentialOption(googleOption).build()
         credentialManager.getCredentialAsync(
             context,
